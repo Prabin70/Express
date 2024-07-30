@@ -1,0 +1,20 @@
+CRUD 
+c = create // 
+R = Read/ readall // readSpecific = findById R read = findById
+U = update // findByAndUpdate
+D = Delete  // findByAndDelete 
+
+
+
+ API => defining task for each request
+ Backend  flow :-
+    schema
+    model
+    conttroller
+    router 
+    index
+
+
+git add .
+git commit "Add"
+git push main
