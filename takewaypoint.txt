@@ -18,3 +18,7 @@ D = Delete  // findByAndDelete
 git add .
 git commit "Add"
 git push main
+ 
+teacher 
+books 
+classroom
