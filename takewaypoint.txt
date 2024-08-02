@@ -22,3 +22,41 @@ git push main
 teacher 
 books 
 classroom
+
+
+
+classroom // done
+book // book 
+college //
+user// done
+bike // done 
+webUser// Done 
+teacher //teacher
+student / Name; class ; age; idcard
+department 
+trainee
+
+
+
+
+informational response 100 - 199
+successful response 200-299 // important =>lies in Backend
+redirectionmessage = 300 399
+client error response 400 - 499 //
+server error response 500 -599
+200 
+2001 whilw creating in controller 
+
+400 401 403 404
+
+400 bad request // inpart of error
+401 unauthorized 
+403 forbiden 
+404 not found 
+500 internal server error
+
+
+readSpecific
+readall
+update 
+Delete

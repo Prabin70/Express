@@ -4,6 +4,11 @@ import connectDB from "./src/ConnectDatabase/connectMongo.js";
 import productRouter from "./src/Router/productRouter.js";
 import bookRouter from "./src/Router/bookRouter.js";
 import teacherRouter from "./src/Router/teacherRouter.js";
+import classroomRouter from "./src/Router/classroomRouter.js";
+import createCollegeRouter from "./src/Router/collegeRouter.js";
+import webUserRouter from "./src/Router/webUserRouter.js";
+import createBikeRouter from "./src/Router/bikeRouter.js";
+import studentRouter from "./src/Router/studentRouter.js";
 
 const myApp = express();
 const port = 3000;
@@ -16,6 +21,12 @@ myApp.use("/user", userRouter);
 myApp.use("/product", productRouter);
 myApp.use("/book", bookRouter);
 myApp.use("/teacher", teacherRouter);
+myApp.use("/classroom", classroomRouter);
+myApp.use("/webuser", webUserRouter);
+myApp.use("/college", createCollegeRouter);
+myApp.use("/bike", createBikeRouter);
+
+myApp.use("/student", studentRouter);
 
 myApp.listen(port, () => {
   console.log(`Express is running at port ${port}.`);

@@ -15,3 +15,19 @@ export const createTeacherController = async (req, res, next) => {
     });
   }
 };
+
+export const readAllCreateTeacherController = async (req, res, next) => {
+  try {
+    let result = await Teacher.find({});
+    res.json({
+      success: true,
+      message: "Found teacher successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
