@@ -9,6 +9,8 @@ import createCollegeRouter from "./src/Router/collegeRouter.js";
 import webUserRouter from "./src/Router/webUserRouter.js";
 import createBikeRouter from "./src/Router/bikeRouter.js";
 import studentRouter from "./src/Router/studentRouter.js";
+import departmentRouter from "./src/Router/departmentRouter.js";
+import traineeRouter from "./src/Router/traineeRouter.js";
 
 const myApp = express();
 const port = 3000;
@@ -25,6 +27,8 @@ myApp.use("/classroom", classroomRouter);
 myApp.use("/webuser", webUserRouter);
 myApp.use("/college", createCollegeRouter);
 myApp.use("/bike", createBikeRouter);
+myApp.use("/department", departmentRouter);
+myApp.use("/trainee", traineeRouter);
 
 myApp.use("/student", studentRouter);
 

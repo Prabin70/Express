@@ -8,6 +8,8 @@ import { collegeSchema } from "./collegeSchema.js";
 import webUserSchema from "./webUserSchema.js";
 import bikeSchema from "./bikeSchema.js";
 import studentSchema from "./studentSchema.js";
+import departmentShema from "./departmentSchema.js";
+import traineeSchema from "./traineeSchema.js";
 
 export const User = mongoose.model("User", userSchema);
 export const Product = mongoose.model("Product", productSchema);
@@ -18,3 +20,5 @@ export const College = mongoose.model("College", collegeSchema);
 export const Webuser = mongoose.model("Webuser", webUserSchema);
 export const Bike = mongoose.model("Bike", bikeSchema);
 export const Student = mongoose.model("Student", studentSchema);
+export const Department = mongoose.model("Department", departmentShema);
+export const Trainee = mongoose.model("Trainee", traineeSchema);
