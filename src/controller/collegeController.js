@@ -15,3 +15,19 @@ export const createCollegeController = async (req, res, next) => {
     });
   }
 };
+
+export const readAllCollege = async (req, res, next) => {
+  try {
+    let result = await College.find({});
+    res.json({
+      success: true,
+      message: "College read successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

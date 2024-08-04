@@ -26,10 +26,9 @@ myApp.use("/teacher", teacherRouter);
 myApp.use("/classroom", classroomRouter);
 myApp.use("/webuser", webUserRouter);
 myApp.use("/college", createCollegeRouter);
-myApp.use("/bike", createBikeRouter);
+myApp.use("/bikes", createBikeRouter);
 myApp.use("/department", departmentRouter);
 myApp.use("/trainee", traineeRouter);
-
 myApp.use("/student", studentRouter);
 
 myApp.listen(port, () => {

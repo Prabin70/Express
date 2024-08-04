@@ -15,3 +15,24 @@ export const createBookController = async (req, res, next) => {
     });
   }
 };
+
+export const readAllBookController = async (req, res, next) => {
+  try {
+    let output = await Book.find({});
+    res.json({
+      seccess: true,
+      message: "Book read successfully",
+      data: output,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+export const readSpecificBook = ()=>{
+
+}

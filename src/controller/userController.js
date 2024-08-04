@@ -15,3 +15,19 @@ export const createUserController = async (req, res, next) => {
     });
   }
 };
+
+export const readAllUserController = async (req, res, next) => {
+  try {
+    let output = await User.find({});
+    res.json({
+      success: true,
+      message: "user read successfuly",
+      data: output,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

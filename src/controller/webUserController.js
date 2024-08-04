@@ -50,6 +50,32 @@ export const createWebUserController = async (req, res, next) => {
   }
 };
 
+export const verifyEmail = async (req, res, next) => {
+  try {
+    let tokenString = req.headers.authorization;
+    let tokenArray = tokenString.split(" ");
+    let token = tokenArray[1];
+
+    let infoObj = await jwt.verify(token, secretKey);
+    let userId = infoObj.id;
+
+    let result = await Webuser.findByIdAndUpdate(userId, {
+      isVerifiedEmail: true,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Email verified successfully",
+      result: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 export const readAllWebUserController = async (req, res, next) => {
   try {
     let output = await Webuser.find({});

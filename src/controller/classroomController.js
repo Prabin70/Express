@@ -15,3 +15,19 @@ export const createClassroomController = async (req, res, next) => {
     });
   }
 };
+
+export const readAllClassroom = async (req, res, next) => {
+  try {
+    let result = await Desk.find({});
+    res.json({
+      success: true,
+      message: "classroom read successfully",
+      dada: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

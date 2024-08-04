@@ -16,7 +16,7 @@ export const createStudentController = async (req, res, next) => {
   }
 };
 
-export const readAboutStudents = async (res, req, next) => {
+export const readAboutStudents = async (req, res, next) => {
   try {
     let output = await Student.find({});
     res.json({
