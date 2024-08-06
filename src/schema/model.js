@@ -16,7 +16,6 @@ export const User = mongoose.model("User", userSchema);
 export const Product = mongoose.model("Product", productSchema);
 export const Book = mongoose.model("Book", bookSchema);
 export const Teacher = mongoose.model("Teacher", teacherSchema);
-export const Desk = mongoose.model("Desk", classroomSchema);
 export const College = mongoose.model("College", collegeSchema);
 export const Webuser = mongoose.model("Webuser", webUserSchema);
 export const Bike = mongoose.model("Bike", bikeSchema);

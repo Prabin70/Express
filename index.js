@@ -24,7 +24,6 @@ myApp.use("/user", userRouter);
 myApp.use("/product", productRouter);
 myApp.use("/book", bookRouter);
 myApp.use("/teacher", teacherRouter);
-myApp.use("/classroom", classroomRouter);
 myApp.use("/webuser", webUserRouter);
 myApp.use("/college", createCollegeRouter);
 myApp.use("/bikes", createBikeRouter);

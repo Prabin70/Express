@@ -73,7 +73,7 @@ export const updateProductController = async (req, res, next) => {
 
 export const deleteProductController = async (req, res, next) => {
   try {
-    let result = await Product.findByIdAndDelete(req.params);
+    let result = await Product.findByIdAndDelete(req.params.id);
     res.json({
       success: true,
       message: "Product deleted successfully",
