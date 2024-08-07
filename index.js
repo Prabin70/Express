@@ -4,7 +4,6 @@ import connectDB from "./src/ConnectDatabase/connectMongo.js";
 import productRouter from "./src/Router/productRouter.js";
 import bookRouter from "./src/Router/bookRouter.js";
 import teacherRouter from "./src/Router/teacherRouter.js";
-import classroomRouter from "./src/Router/classroomRouter.js";
 import createCollegeRouter from "./src/Router/collegeRouter.js";
 import webUserRouter from "./src/Router/webUserRouter.js";
 import createBikeRouter from "./src/Router/bikeRouter.js";

@@ -3,7 +3,6 @@ import userSchema from "./userSchema.js";
 import productSchema from "./productSchema..js";
 import bookSchema from "./bookSchema.js";
 import teacherSchema from "./teacherSchema.js";
-import classroomSchema from "./classroomSchema.js";
 import { collegeSchema } from "./collegeSchema.js";
 import webUserSchema from "./webUserSchema.js";
 import bikeSchema from "./bikeSchema.js";

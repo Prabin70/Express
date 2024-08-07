@@ -190,6 +190,118 @@ export const login = async (req, res, next) => {
 //   }
 // };
 
+export const myProfile = async (req, res, next) => {
+  //   try {
+  //     let id = req._id;
+  //     let result = await Webuser.findById(id);
+  //     // console.log(first);
+  //     res.status(200).json({
+  //       success: true,
+  //       message: "myProfile read successfully",
+  //       data: result,
+  //     });
+  //   } catch (error) {
+  //     res.status(400).json({
+  //       success: false,
+  //       message: error.message,
+  //     });
+  //   }
+  // };
+
+  try {
+    let id = req._id;
+    let result = await Webuser.findById(id);
+    res.status(200).json({
+      success: true,
+      message: "Account read sucessfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const updatePassword = async (req, res, next) => {
+  try {
+    let id = req._id; //id taken from authenticated section...
+    let oldPassword = req.body.oldPassword;
+    //we need to provide an old password before changing the password
+    let newPassword = req.body.newPassword;
+    //this is a new password
+    let data = await Webuser.findById(id);
+    //get the user password
+    let hashedPassword = data.password;
+    //taking old paswordor hashed password from database..
+    let isValidPassword = await bcrypt.compare(oldPassword, hashedPassword);
+    //comparing olld passwords of user stored in database and user provided password ..
+    if (isValidPassword) {
+      let newHashedpassword = await bcrypt.hash(newPassword, 10);
+      //hashing new password ..
+      let result = await Webuser.findByIdAndUpdate(
+        id,
+        { password: newPassword },
+        { new: true }
+      );
+      //updating password seting new password
+      res.status(200).json({
+        success: true,
+        message: "Password updated successfully",
+        result: result,
+      });
+      //successfully
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+  //if error
+};
+
+export const updateProfile = async (req, res, next) => {
+  // try {
+  //   let _id = req._id;
+  //   let data = req.body;
+  //   delete data.email;
+  //   delete data.password;
+
+  //   let result = await Webuser.findByIdAndUpdate(_id, data, { new: true });
+  //   res.status(200).json({
+  //     success: true,
+  //     message: "Profile updated successfully",
+  //     data: result,
+  //   });
+  // } catch (error) {
+  //   res.status(400).json({
+  //     success: false,
+  //     message: error.message,
+  //   });
+  // }
+
+  try {
+    let _id = req._id;
+    let data = req.body;
+    delete data.email;
+    delete data.password;
+
+    let result = await Webuser.findByIdAndUpdate(_id, data, { new: true });
+    res.status(200).json({
+      success: true,
+      message: "Account updated successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 export const readAllWebUserController = async (req, res, next) => {
   try {
     let output = await Webuser.find({});
