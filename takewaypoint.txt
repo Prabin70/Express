@@ -60,3 +60,26 @@ readSpecific
 readall
 update 
 Delete
+
+
+
+readSpecific
+realAll 
+readWebuser
+updateWebser
+
+
+
+
+function of multer 
+file 
+filter 
+limit 
+
+first we need to give the limit for the file (i.e = 2mb in an exammple)
+then we have to give the destination to the file and our own name to the file.
+at last we have to filter the file if it has the extName that we have allowed (i.e = "jpg", "jpeg" etc....)
+
+day 25
+
+

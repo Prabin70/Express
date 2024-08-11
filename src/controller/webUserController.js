@@ -262,6 +262,64 @@ export const updatePassword = async (req, res, next) => {
   //if error
 };
 
+export const forgotPassword = async (req, res, next) => {
+  try {
+    let email = req.body.email;
+    let result = await Webuser.findOne({ email: email });
+
+    if (result) {
+      let infoObj = {
+        id: result._id,
+      };
+      let expiresInfo = {
+        expiresIn: "1d",
+      };
+
+      let token = await jwt.sign(infoObj, secretKey, expiresInfo);
+      await sendEmail({
+        to: email,
+        subject: "Reset Password",
+        html: `<h1>Please click on this link to reset the password</h1>
+        <a href ="http://localhost:3000/reset-password?token=${token}">
+        http://localhost:3000/reset-password?token=${token}</a>`,
+      });
+      res.status(200).json({
+        success: true,
+        message: "Password reset successfully",
+        result: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const resetPassword = async (req, res, next) => {
+  try {
+    // let password = req.password
+    // let id = req._id
+    let hashedPassword = await bcrypt.hash(req.body.password, 10);
+    let result = await Webuser.findByIdAndUpdate(
+      req._id,
+      { password: hashedPassword },
+      { new: true }
+    );
+    res.status(200).json({
+      success: true,
+      message: "Password reset successfully",
+      result: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 export const updateProfile = async (req, res, next) => {
   // try {
   //   let _id = req._id;
