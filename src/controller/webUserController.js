@@ -34,12 +34,12 @@ export const createWebUserController = async (req, res, next) => {
       to: data.email,
       subject: "Account Registration",
       html: `<h1> Your account has been registered Successfully</h1>
-      <a href="https://localhost:3000/verify-email?token=${token}">"https://localhost:3000/verify-email?token=${token}"</a>`,
+      <a href="http://localhost:5173/verify-email?token=${token}">http://localhost:5173/verify-email?token=${token}</a>`,
     });
 
     res.json({
       success: true,
-      message: "webUser created successfully",
+      message: "Verificaation mail sent",
       resut: result,
     });
   } catch (error) {

@@ -83,3 +83,17 @@ at last we have to filter the file if it has the extName that we have allowed (i
 day 25
 
 
+react Setup
+
+review.js 
+prooduct id 
+user id 
+description
+in schema 
+
+
+data // 
+C = create
+R= read
+U= findByIdAndUpdate
+D= findByIdAndDelete

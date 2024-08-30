@@ -48,3 +48,38 @@ export const readSpecificTrainee = async (req, res, next) => {
     });
   }
 };
+
+export const updateTrainee = async (req, res, next) => {
+  try {
+    let data = req.body;
+    let result = await Trainee.findByIdAndUpdate(req.params.id, data, {
+      new: true,
+    });
+    res.json({
+      success: true,
+      message: "Trainee updated successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const deleteTrainee = async (req, res, next) => {
+  try {
+    let output = await Trainee.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "Trainee deleted successfully",
+      data: output,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
