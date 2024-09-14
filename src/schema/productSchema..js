@@ -1,17 +1,32 @@
 import mongoose from "mongoose";
-
-let productSchema = new mongoose.Schema({
-  productName: {
+let product = new mongoose.Schema({
+  Name: {
     type: String,
-    required: [true, "ProductName field is requires"],
+    required: [true, "productName is required"],
   },
-  quantity: {
+  Quantity: {
     type: Number,
-    required: [true, "quantity field is required"],
+    required: [true, "Please enter the quantity"],
   },
-  price: {
+  Price: {
     type: Number,
-    required: [true, "price field is rquired"],
+    required: [true, "Please enter the price"],
+  },
+  Featured: {
+    type: Boolean,
+    required: [true, "Featured status is required"],
+  },
+  ProductImage: {
+    type: String,
+    required: [true, "Product Image is required"],
+  },
+  ManufactureDate: {
+    type: Date,
+    required: [true, "Manufactured date is required"],
+  },
+  Company: {
+    type: String,
+    required: [true, "Company name is required"],
   },
 });
-export default productSchema;
+export default product;

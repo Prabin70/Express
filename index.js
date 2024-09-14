@@ -18,6 +18,7 @@ const port = 3000;
 
 myApp.use(json());
 myApp.use(cors()); // read json data otherwise it willnot read the data
+myApp.use(express.static("./public"));
 
 connectDB();
 

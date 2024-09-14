@@ -1,6 +1,6 @@
 export const handleSingeFileController = async (req, res, next) => {
   try {
-    let link = `https://localhost:3000/${req.file.filename}`;
+    let link = `http://localhost:3000/${req.file.filename}`;
     res.status(200).json({
       success: true,
       message: "File uploaded psuccessfully",
@@ -17,7 +17,7 @@ export const handleSingeFileController = async (req, res, next) => {
 export const handleMultipleFileController = async (req, res, next) => {
   try {
     let link = req.files.map((value, index) => {
-      return `https://localhost:3000/${value.filename}`;
+      return `http://localhost:3000/${value.filename}`;
     });
 
     res.status(200).json({

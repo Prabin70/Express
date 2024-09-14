@@ -116,7 +116,7 @@ export const login = async (req, res, next) => {
 
     //if email is not verified
 
-    if (!user.isVerifiedEmail) {
+    if (user.isVerifiedEmail === "false") {
       throw new Error("Email is not verified");
     }
 
@@ -242,7 +242,7 @@ export const updatePassword = async (req, res, next) => {
       //hashing new password ..
       let result = await Webuser.findByIdAndUpdate(
         id,
-        { password: newPassword },
+        { password: newHashedpassword },
         { new: true }
       );
       //updating password seting new password
@@ -280,8 +280,8 @@ export const forgotPassword = async (req, res, next) => {
         to: email,
         subject: "Reset Password",
         html: `<h1>Please click on this link to reset the password</h1>
-        <a href ="http://localhost:3000/reset-password?token=${token}">
-        http://localhost:3000/reset-password?token=${token}</a>`,
+        <a href ="http://localhost:5173/reset-password?token=${token}">
+        http://localhost:5173/reset-password?token=${token}</a>`,
       });
       res.status(200).json({
         success: true,
