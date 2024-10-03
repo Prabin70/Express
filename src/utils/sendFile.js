@@ -1,7 +1,6 @@
 //beofore we working with multer we always have to make public folder(it is teh common error that beginner does )
 //public fil is the place where file stores
 
-import { error } from "console";
 import multer from "multer";
 
 import path from "path";

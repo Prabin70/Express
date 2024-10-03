@@ -6,6 +6,7 @@ export const handleSingeFileController = async (req, res, next) => {
       message: "File uploaded psuccessfully",
       result: link,
     });
+    console.log(link);
   } catch (error) {
     res.status(400).json({
       success: false,
