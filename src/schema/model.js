@@ -10,13 +10,17 @@ import studentSchema from "./studentSchema.js";
 import departmentShema from "./departmentSchema.js";
 import traineeSchema from "./traineeSchema.js";
 import createEmployeeSchema from "./employeeSchema.js";
+import houseSchema from "./hoouseSchema.js";
+import newUserSchema from "./newUserSchema.js";
 
 export const User = mongoose.model("User", userSchema);
 export const Product = mongoose.model("Product", productSchema);
 export const Book = mongoose.model("Book", bookSchema);
 export const Teacher = mongoose.model("Teacher", teacherSchema);
+export const House = mongoose.model("House", houseSchema);
 
 export const Webuser = mongoose.model("Webuser", webUserSchema);
+export const NewUser = mongoose.model('NewUser', newUserSchema);
 export const Bike = mongoose.model("Bike", bikeSchema);
 export const Student = mongoose.model("Student", studentSchema);
 export const Department = mongoose.model("Department", departmentShema);

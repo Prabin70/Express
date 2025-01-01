@@ -5,9 +5,8 @@ let transportInfo = {
   port: 587,
   secure: false,
   auth: {
-    //note: user and pass must be genuine. otherwise mail wont be sent
     user: "xthaprabin125@gmail.com",
-    pass: "garj jkuc aswi egdt",
+    pass: "blya ocrk jkod ttin",
   },
 };
 
@@ -18,4 +17,5 @@ export let sendEmail = async (mailInfo) => {
   } catch (error) {
     console.log("error occured", error.message);
   }
+
 };

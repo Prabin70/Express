@@ -1,5 +1,7 @@
 import { Student } from "../schema/model.js";
 
+
+
 export const createStudentController = async (req, res, next) => {
   try {
     let result = await Student.create(req.body);
@@ -47,6 +49,39 @@ export const readSpecificStudent = async (req, res, next) => {
     });
   }
 };
+
+
+export const searchStudentController = async (req, res, next) => {
+  try {
+    let item = req.query.item;
+    const pipeline = [];
+    pipeline.push({
+      $match: {
+        $or: [
+          { studentName: { $regex: item, $options: "i" } },
+          { age: { $regex: item, $options: "i" } },
+          { class: { $regex: item, $options: "i" } },
+          { idCard: { $regex: item, $options: "i" } }
+
+        ]
+      }
+    })
+    const result = await Student.aggregate(pipeline)
+    res.status(200).json({
+      success: true,
+      message: "Students details read successfully",
+      data: result,
+    })
+
+  } catch (error) {
+
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    })
+  }
+}
+
 
 export const updateStudentController = async (req, res, next) => {
   try {

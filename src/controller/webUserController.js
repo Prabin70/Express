@@ -1,6 +1,6 @@
-import { Webuser } from "../schema/model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { Webuser } from "../schema/model.js";
 import { secretKey } from "../utils/constant.js";
 import { sendEmail } from "../utils/sendEmail.js";
 
@@ -51,29 +51,6 @@ export const createWebUserController = async (req, res, next) => {
 };
 
 export const verifyEmail = async (req, res, next) => {
-  // try {
-  //   let tokenString = req.headers.authorization;
-  //   let tokenArray = tokenString.split(" ");
-  //   let token = tokenArray[1];
-
-  //   let infoObj = await jwt.verify(token, secretKey);
-  //   let userId = infoObj.id;
-
-  //   let result = await Webuser.findByIdAndUpdate(userId, {
-  //     isVerifiedEmail: true,
-  //   });
-
-  //   res.status(200).json({
-  //     success: true,
-  //     message: "Email verified successfully",
-  //     result: result,
-  //   });
-  // } catch (error) {
-  //   res.status(400).json({
-  //     success: false,
-  //     message: error.message,
-  //   });
-  // }
 
   try {
     let tokenString = req.headers.authorization;
@@ -84,6 +61,7 @@ export const verifyEmail = async (req, res, next) => {
     let userId = infoObj.id;
 
     console.log(infoObj);
+
 
     let result = await Webuser.findByIdAndUpdate(userId, {
       isVerifiedEmail: true,
@@ -115,6 +93,8 @@ export const login = async (req, res, next) => {
     }
 
     //if email is not verified
+
+
 
     if (user.isVerifiedEmail === "false") {
       throw new Error("Email is not verified");
@@ -191,22 +171,7 @@ export const login = async (req, res, next) => {
 // };
 
 export const myProfile = async (req, res, next) => {
-  //   try {
-  //     let id = req._id;
-  //     let result = await Webuser.findById(id);
-  //     // console.log(first);
-  //     res.status(200).json({
-  //       success: true,
-  //       message: "myProfile read successfully",
-  //       data: result,
-  //     });
-  //   } catch (error) {
-  //     res.status(400).json({
-  //       success: false,
-  //       message: error.message,
-  //     });
-  //   }
-  // };
+
 
   try {
     let id = req._id;
@@ -321,24 +286,6 @@ export const resetPassword = async (req, res, next) => {
 };
 
 export const updateProfile = async (req, res, next) => {
-  // try {
-  //   let _id = req._id;
-  //   let data = req.body;
-  //   delete data.email;
-  //   delete data.password;
-
-  //   let result = await Webuser.findByIdAndUpdate(_id, data, { new: true });
-  //   res.status(200).json({
-  //     success: true,
-  //     message: "Profile updated successfully",
-  //     data: result,
-  //   });
-  // } catch (error) {
-  //   res.status(400).json({
-  //     success: false,
-  //     message: error.message,
-  //   });
-  // }
 
   try {
     let _id = req._id;

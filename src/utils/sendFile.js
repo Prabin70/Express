@@ -68,7 +68,7 @@ let fileFilter = (req, file, cb) => {
 };
 
 const upload = multer({
-  // storage define the location in the server where the file is storeand controll the filename
+  // storage define the location in the server where the file is store and controll the filename
 
   storage: storage,
 

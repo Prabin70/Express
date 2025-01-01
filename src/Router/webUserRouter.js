@@ -15,11 +15,13 @@ import { isAuthorization } from "../middleware/isAuthorization.js";
 
 let webUserRouter = Router();
 webUserRouter.route("/").post(createWebUserController);
+
+
 webUserRouter
   .route("/")
   .get(isAuthenticated, isAuthorization(["admin"]), readAllWebUserController);
 
-webUserRouter.route("/verify-email").post(verifyEmail);
+webUserRouter.route("/verify-email").post(isAuthenticated, verifyEmail);
 webUserRouter.route("/login").post(login);
 webUserRouter.route("/my-profile").get(isAuthenticated, myProfile);
 webUserRouter.route("/update-profile").patch(isAuthenticated, updateProfile);
